@@ -1,3 +1,9 @@
-# fake-geometry-wars
+<<<<<<< HEAD
+# Emoji-wars-game-thing(working title 😂)
 
-## small javascript project for flatiron school 
+flatiron mod 3 project
+
+there's a rails API in the backend directory
+
+* ...
+=======
