@@ -1,29 +1,50 @@
-class SelectionScene extends Phaser.Scene{
+class SelectShipScene extends Phaser.Scene{
   constructor(){
-    super({key: 'SelectionScene'})
+    super({key: 'SelectShipScene'})
   }
   preload(){
-    gameState.ships = []
-    GameAdapter.getShips().then(resp=>resp.json()).then(ships=>{
-      ships.forEach(ship=>{
-        gameState.ships.push(new Ship(ship))
-      })
-    })
-
-    gameState.stages =[]
-    GameAdapter.getStages().then(resp=>resp.json()).then(stages=>{
-      stages.forEach(stage=>{
-        gameState.stages.push(new Stage(stage))
-      })
-    })
-
-    let shipBox = this.add.container(200,-200)
-  }
+    debugger
+    this.load.image('ship1',`${gameState.ships[0].image_url}`)
+    }
   create(){
-    this.add.text( 150, 250, 'Select Stage and Ship', {fill: '#000000', fontSize: '20px'})
-    console.log(gameState.ships)
-    console.log(gameState.stages)
-    // gameState.ships = []
+    this.add.text( 650, 150, 'Select Ship', {fill: '#000000', fontSize: '40px'})
+    let shipBox = this.add.rectangle(800, 350, 900, 250, 0x37c3be)
+    this.add.image(400,400,'ship1')
+  //   shipBox.setOrigin(0,0)
+  //   gameState.shipBoxes =[]
+  //   const spacing = 440 / gameState.ships.length;
+  //   const translation = spacing / 2;
+  //
+  //   for (let i = 0; i < gameState.ships.length; i++) {
+  //   // Create each of the palette circles with one of the colors from the palette
+  //   let ship = gameState.ship[i];
+  //   let shipContainer = this.add.circle(translation + spacing * i, 515, 22, color);
+  //
+  //   paletteCircle.strokeColor = 0x000000;
+  //   paletteCircle.isStroked = true;
+  //   paletteCircle.lineWidth = 2;
+  //   paletteCircle.setInteractive();
+  //
+  //   paletteCircle.on('pointerdown', function() {
+  //     gameState.selectedColor = this.color;
+  //   }, { color });
+  //
+  //   paletteCircle.on('pointerover', function() {
+  //     this.strokeColor = 0xffffff;
+  //   });
+  //
+  //   paletteCircle.on('pointerout', function() {
+  //     this.paletteCircle.strokeColor = 0x000000;
+  //     if (gameState.selectedColor === this.color) {
+  //       for (let circle of gameState.paletteCircles) {
+  //         circle.strokeColor = 0x000000;
+  //       }
+  //       this.paletteCircle.strokeColor = 0xffc836;
+  //     }
+  //   }, { paletteCircle, color })
+  //
+  //   gameState.paletteCircles.push(paletteCircle);
+  // }
     // return fetch('http://localhost:3000/ships')
     // .then(resp=>resp.json()).then(ships=>{
     //   ships.forEach(ship=>{

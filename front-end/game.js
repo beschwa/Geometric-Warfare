@@ -12,10 +12,11 @@ const config = {
           enableBody: true,
         }
     },
-    scene: [WelcomeScene,
-      SelectionScene,
-      GameScene,
-      LeaderboardScene,
+    scene: [
+      WelcomeScene,
+      SelectShipScene
+      // GameScene,
+      // LeaderboardScene,
     ]
 
 }

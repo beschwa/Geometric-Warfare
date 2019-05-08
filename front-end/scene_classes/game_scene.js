@@ -24,163 +24,163 @@ class GameScene extends Phaser.Scene{
       console.log(gameState.cursors)
   }
 
-  bulletGen(destination, secondary) {
-      let x;
-      switch(destination) {
-          case 'up':
-              x = gameState.bullets.create(gameState.ship.x, gameState.ship.y, 'bullet');
-              x.setVelocityY(-500)
-              switch(secondary) {
-                  case 'left':
-                      x.setVelocityX(-500)
-                  break;
-                  case 'right':
-                      x.setVelocityX(500)
-                  break;
-              }
-              break;
-          case 'down':
-              x = gameState.bullets.create(gameState.ship.x, gameState.ship.y, 'bullet');
-              x.setVelocityY(500)
-              switch(secondary) {
-                  case 'left':
-                      x.setVelocityX(-500)
-                  break;
-                  case 'right':
-                      x.setVelocityX(500)
-                  break;
-              }
-              break;
-          case 'left':
-              x = gameState.bullets.create(gameState.ship.x, gameState.ship.y, 'bullet');
-              x.setVelocityX(-500)
-              switch(secondary) {
-                  case 'up':
-                      x.setVelocityY(-500)
-                  break;
-                  case 'down':
-                      x.setVelocityY(500)
-                  break;
-              }
-              break;
-          case 'right':
-              x = gameState.bullets.create(gameState.ship.x, gameState.ship.y, 'bullet');
-              x.setVelocityX(500)
-              switch(secondary) {
-                  case 'up':
-                      x.setVelocityY(-500)
-                  break;
-                  case 'down':
-                      x.setVelocityY(500)
-                  break;
-              }
-              break;
-
-      }
-      x.setCollideWorldBounds(true);
-  }
-
-
-  handleShip () {
-      if (gameState.cursors.up.isDown){
-          if (gameState.cursors.left.isDown){
-              gameState.ship.angle = 315
-              gameState.ship.setVelocityY(-500);
-              gameState.ship.setVelocityX(-500);
-          } else if (gameState.cursors.right.isDown){
-              gameState.ship.angle = 45
-              gameState.ship.setVelocityY(-500)
-              gameState.ship.setVelocityX(500);
-          } else {
-              gameState.ship.angle = 0
-              gameState.ship.setVelocityY(-500)
-          }
-      } else if (gameState.cursors.down.isDown){
-          if (gameState.cursors.left.isDown){
-              gameState.ship.angle = 225
-              gameState.ship.setVelocityY(500);
-              gameState.ship.setVelocityX(-500);
-          } else if (gameState.cursors.right.isDown){
-              gameState.ship.angle = 135
-              gameState.ship.setVelocityY(500);
-              gameState.ship.setVelocityX(500);
-          } else {
-              gameState.ship.angle = 180
-              gameState.ship.setVelocityY(500)
-          }
-      } else if (gameState.cursors.left.isDown){
-          if (gameState.cursors.up.isDown){
-              gameState.ship.angle = 315
-              gameState.ship.setVelocityY(-500);
-              gameState.ship.setVelocityX(-500);
-          } else if (gameState.cursors.down.isDown){
-              gameState.ship.angle = 225
-              gameState.ship.setVelocityY(500)
-              gameState.ship.setVelocityX(-500);
-          } else {
-              gameState.ship.angle = 270
-              gameState.ship.setVelocityX(-500)
-          }
-      } else if (gameState.cursors.right.isDown){
-          if (gameState.cursors.up.isDown){
-              gameState.ship.angle = 45
-              gameState.ship.setVelocityY(-500);
-              gameState.ship.setVelocityX(500);
-          } else if (gameState.cursors.down.isDown){
-              gameState.ship.angle = 135
-              gameState.ship.setVelocityY(500)
-              gameState.ship.setVelocityX(500);
-          } else {
-              gameState.ship.angle = 90
-              gameState.ship.setVelocityX(500)
-          }
-      } else {
-          gameState.ship.setVelocityX(0);
-          gameState.ship.setVelocityY(0);
-      }
-  }
-
-
-  handleBullet () {
-      if(gameState.w.isDown){
-          if(gameState.a.isDown){
-              bulletGen('up', 'left')
-          } else if (gameState.d.isDown) {
-              bulletGen('up', 'right')
-          } else {
-              bulletGen('up')
-          }
-      } else if (gameState.a.isDown){
-          if(gameState.w.isDown){
-              bulletGen('left', 'up')
-          } else if (gameState.s.isDown) {
-              bulletGen('left', 'down')
-          } else {
-              bulletGen('left')
-          }
-      } else if (gameState.s.isDown){
-          if(gameState.a.isDown){
-              bulletGen('down', 'left')
-          } else if (gameState.d.isDown) {
-              bulletGen('down', 'right')
-          } else {
-              bulletGen('down')
-          }
-      } else if (gameState.d.isDown){
-          if(gameState.w.isDown){
-              bulletGen('right', 'up')
-          } else if (gameState.s.isDown) {
-              bulletGen('right', 'down')
-          } else {
-              bulletGen('right')
-          }
-      }
-  }
-
   update () {
+  function bulletGen(destination, secondary) {
+        let x;
+        switch(destination) {
+            case 'up':
+                x = gameState.bullets.create(gameState.ship.x, gameState.ship.y, 'bullet');
+                x.setVelocityY(-500)
+                switch(secondary) {
+                    case 'left':
+                        x.setVelocityX(-500)
+                    break;
+                    case 'right':
+                        x.setVelocityX(500)
+                    break;
+                }
+                break;
+            case 'down':
+                x = gameState.bullets.create(gameState.ship.x, gameState.ship.y, 'bullet');
+                x.setVelocityY(500)
+                switch(secondary) {
+                    case 'left':
+                        x.setVelocityX(-500)
+                    break;
+                    case 'right':
+                        x.setVelocityX(500)
+                    break;
+                }
+                break;
+            case 'left':
+                x = gameState.bullets.create(gameState.ship.x, gameState.ship.y, 'bullet');
+                x.setVelocityX(-500)
+                switch(secondary) {
+                    case 'up':
+                        x.setVelocityY(-500)
+                    break;
+                    case 'down':
+                        x.setVelocityY(500)
+                    break;
+                }
+                break;
+            case 'right':
+                x = gameState.bullets.create(gameState.ship.x, gameState.ship.y, 'bullet');
+                x.setVelocityX(500)
+                switch(secondary) {
+                    case 'up':
+                        x.setVelocityY(-500)
+                    break;
+                    case 'down':
+                        x.setVelocityY(500)
+                    break;
+                }
+                break;
+
+        }
+        x.setCollideWorldBounds(true);
+    }
+
+
+    function handleShip () {
+        if (gameState.cursors.up.isDown){
+            if (gameState.cursors.left.isDown){
+                gameState.ship.angle = 315
+                gameState.ship.setVelocityY(-500);
+                gameState.ship.setVelocityX(-500);
+            } else if (gameState.cursors.right.isDown){
+                gameState.ship.angle = 45
+                gameState.ship.setVelocityY(-500)
+                gameState.ship.setVelocityX(500);
+            } else {
+                gameState.ship.angle = 0
+                gameState.ship.setVelocityY(-500)
+            }
+        } else if (gameState.cursors.down.isDown){
+            if (gameState.cursors.left.isDown){
+                gameState.ship.angle = 225
+                gameState.ship.setVelocityY(500);
+                gameState.ship.setVelocityX(-500);
+            } else if (gameState.cursors.right.isDown){
+                gameState.ship.angle = 135
+                gameState.ship.setVelocityY(500);
+                gameState.ship.setVelocityX(500);
+            } else {
+                gameState.ship.angle = 180
+                gameState.ship.setVelocityY(500)
+            }
+        } else if (gameState.cursors.left.isDown){
+            if (gameState.cursors.up.isDown){
+                gameState.ship.angle = 315
+                gameState.ship.setVelocityY(-500);
+                gameState.ship.setVelocityX(-500);
+            } else if (gameState.cursors.down.isDown){
+                gameState.ship.angle = 225
+                gameState.ship.setVelocityY(500)
+                gameState.ship.setVelocityX(-500);
+            } else {
+                gameState.ship.angle = 270
+                gameState.ship.setVelocityX(-500)
+            }
+        } else if (gameState.cursors.right.isDown){
+            if (gameState.cursors.up.isDown){
+                gameState.ship.angle = 45
+                gameState.ship.setVelocityY(-500);
+                gameState.ship.setVelocityX(500);
+            } else if (gameState.cursors.down.isDown){
+                gameState.ship.angle = 135
+                gameState.ship.setVelocityY(500)
+                gameState.ship.setVelocityX(500);
+            } else {
+                gameState.ship.angle = 90
+                gameState.ship.setVelocityX(500)
+            }
+        } else {
+            gameState.ship.setVelocityX(0);
+            gameState.ship.setVelocityY(0);
+        }
+    }
+
+
+    function handleBullet () {
+        if(gameState.w.isDown){
+            if(gameState.a.isDown){
+                bulletGen('up', 'left')
+            } else if (gameState.d.isDown) {
+                bulletGen('up', 'right')
+            } else {
+                bulletGen('up')
+            }
+        } else if (gameState.a.isDown){
+            if(gameState.w.isDown){
+                bulletGen('left', 'up')
+            } else if (gameState.s.isDown) {
+                bulletGen('left', 'down')
+            } else {
+                bulletGen('left')
+            }
+        } else if (gameState.s.isDown){
+            if(gameState.a.isDown){
+                bulletGen('down', 'left')
+            } else if (gameState.d.isDown) {
+                bulletGen('down', 'right')
+            } else {
+                bulletGen('down')
+            }
+        } else if (gameState.d.isDown){
+            if(gameState.w.isDown){
+                bulletGen('right', 'up')
+            } else if (gameState.s.isDown) {
+                bulletGen('right', 'down')
+            } else {
+                bulletGen('right')
+            }
+        }
+    }
       handleShip();
       handleBullet();
       // game.time.repeat(Phaser.Timer.SECOND * 2, 10, handleBullet, this)
   }
+
 
 }
