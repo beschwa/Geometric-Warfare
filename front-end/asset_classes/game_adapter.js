@@ -1,18 +1,20 @@
 class GameAdapter {
   constructor(){}
   static getShips(){
-    debugger
-    let arr = []
-    return fetch('http://localhost:3000/ships').then(resp=>{
-      resp.json()
-      debugger
-    })
-    .then(ships=>{
-      ships.forEach(ship=>{
-        let newShip = new Ship(ship)
-        return arr.push(newShip)
-      })
-    })
+    const arr = []
+    return fetch('http://localhost:3000/ships')
+
+    // .then(resp=>{
+    //   return resp.json()
+    // })
+    // .then(ships=>{
+    //   debugger
+    //    ships.map(ship=>{
+    //     debugger
+    //     let newShip = new Ship(ship)
+    //     return newShip
+    //   })
+    // })
     // .then(()=>{return arr})
   }
 
