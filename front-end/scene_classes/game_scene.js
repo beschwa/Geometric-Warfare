@@ -56,6 +56,7 @@ class GameScene extends Phaser.Scene{
 
 
     function handleShip () {
+        gameState.ship.setVelocity(0,0)
         if (gameState.cursors.up.isDown){
             if (gameState.cursors.left.isDown){
                 gameState.ship.angle = 315
