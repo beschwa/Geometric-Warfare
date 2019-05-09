@@ -1,7 +1,7 @@
 class GameAdapter {
   constructor(){}
   static getShips(){
-    const arr = []
+    // const arr = []
     return fetch('http://localhost:3000/ships')
 
     // .then(resp=>{
@@ -19,8 +19,7 @@ class GameAdapter {
   }
 
   static getStages(){
-    return fetch('http://localhost:3000/stages').then(resp=>resp.json())
-    .then(stages=>{stages.forEach(stage=>new Stage(stage))})
+    return fetch('http://localhost:3000/stages')
   }
   static getLeaderboard(){
     return fetch('http://localhost:3000/leaderboards').then(resp=>resp.json())
