@@ -3,14 +3,18 @@ class WelcomeScene extends Phaser.Scene{
     super({key:'WelcomeScene'})
   }
   preload(){
-
+    // this.load.bitmapFont('CustomFont','assets/font/font.png','assets/font/font.fnt')
+    GameAdapter.createShips().then(()=>{gameState.ships = Ship.all})
+    GameAdapter.createStages().then(()=>{gameState.stages = Stage.all})
   }
   create(){
-		this.add.text( 150, 250, 'Welcome!Click to start!', {fill: '#000000', fontSize: '20px'})
-    console.log('you got to the welcome')
-		this.input.on('pointerdown', () => {
+		// this.add.text( 650, 150, 'Click to start!', {fill: '#000000', fontSize: '40px',fontFamily:'CustomFont'})
+
+    // console.log('you got to the welcome')
+		// this.input.on('pointerdown', () => {
 			this.scene.stop('WelcomeScene')
-			this.scene.start('SelectionScene')
-		})}
+			this.scene.start('SelectShipScene')
+		// })
+  }
     update(){}
     }

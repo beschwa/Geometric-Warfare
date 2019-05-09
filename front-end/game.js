@@ -6,7 +6,7 @@ const config = {
     type: Phaser.AUTO,
     width: windowWidth,
     height: windowHeight,
-    background: "7D7D7D",
+    backgroundColor: "7D7D7D",
     physics: {
         default: 'arcade',
         arcade: {
@@ -14,12 +14,13 @@ const config = {
           enableBody: true,
         }
     },
-    // scene: [WelcomeScene,
-    //   SelectionScene,
-    //   GameScene,
+    scene: [WelcomeScene,
+      SelectShipScene,
+      SelectStageScene,
+      GameScene,
     //   LeaderboardScene,
-    // ]
-    scene: [GameScene]
+  ]
+
 
 }
 

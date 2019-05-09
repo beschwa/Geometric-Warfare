@@ -3,10 +3,11 @@ class GameScene extends Phaser.Scene{
     super({key:'GameScene'})
   }
   preload () {
-      this.load.image('bg', 'https://i.imgur.com/Gh4LZnk.png')
-      this.load.image('ship', 'https://i.imgur.com/iWiINqS.png')
+      this.load.image('bg', `${gameState.selectedStage.image_url}`)
+      this.load.image('ship', `${gameState.selectedShip.image_url}`)
       this.load.image('bullet', 'https://i.imgur.com/6L5HXrP.png')
       this.load.image('enemy', 'https://i.imgur.com/WElquuZ.png')
+      //edwin below
   }
 
   create () {
@@ -47,7 +48,8 @@ class GameScene extends Phaser.Scene{
       gameState.a = this.input.keyboard.addKey('A')
       gameState.s = this.input.keyboard.addKey('S')
       gameState.d = this.input.keyboard.addKey('D')
-      console.log(gameState.cursors)
+
+      //edwin below
   }
 
   update (time) {
@@ -168,9 +170,13 @@ class GameScene extends Phaser.Scene{
             }
         }
     }}}
+    //edwin functions definition below
+
+
       this.physics.moveToObject(gameState.enemy, gameState.ship, 300)
       handleShip();
       handleBullet();
+      //edwin function calls below
       // game.time.repeat(Phaser.Timer.SECOND * 2, 10, handleBullet, this)
   }
 

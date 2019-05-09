@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_140941) do
   create_table "stages", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
+    t.string "resized_image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
