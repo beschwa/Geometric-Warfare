@@ -13,6 +13,7 @@ class GameScene extends Phaser.Scene{
 
   create () {
     // debugger
+      gameState.userName = null
       this.add.image(windowWidth/2,windowHeight/2,'bg')
       gameState.score = 0;
       gameState.scoreText = this.add.text(windowWidth*.5, windowHeight*.1, 'Score: 0', {fontSize: '15px', fill: '#000000' })
@@ -58,6 +59,7 @@ class GameScene extends Phaser.Scene{
         this.physics.pause();
         this.add.text(windowWidth*.42, windowHeight*.45, 'Game Over', { fontSize: '50px', fill: '#FFFFFF' })
         this.add.text(windowWidth*.42, windowHeight*.55, 'Press Space/Click to Restart', { fontSize: '15px', fill: '#FFFFFF' })
+        // gameState.userName = window.prompt
 
         this.input.on('pointerup', () => {
           this.scene.restart();

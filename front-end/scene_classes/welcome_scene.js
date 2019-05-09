@@ -6,6 +6,9 @@ class WelcomeScene extends Phaser.Scene{
     // this.load.bitmapFont('CustomFont','assets/font/font.png','assets/font/font.fnt')
     GameAdapter.createShips().then(()=>{gameState.ships = Ship.all})
     GameAdapter.createStages().then(()=>{gameState.stages = Stage.all})
+    while(gameState.user === "") {
+      gameState.user = window.prompt("Enter your name you shitbag")
+    }
 
   }
   create(){

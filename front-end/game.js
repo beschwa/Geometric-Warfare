@@ -1,6 +1,7 @@
 gameState = {}
 windowWidth = window.innerWidth
 windowHeight = window.innerHeight
+gameState.user = ""
 
 const config = {
     type: Phaser.AUTO,
