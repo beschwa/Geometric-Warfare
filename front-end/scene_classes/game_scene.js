@@ -3,11 +3,13 @@ class GameScene extends Phaser.Scene{
     super({key:'GameScene'})
   }
   preload () {
+    debugger
       this.load.image('ship', 'http://dianavermilya.github.io/paranormal-site/img/spaceship/spaceship_sprite.png')
       this.load.image('bullet', 'https://i.imgur.com/6L5HXrP.png')
   }
 
   create () {
+    debugger
       gameState.ship = this.physics.add.sprite(300, 300, 'ship').setScale(.5);
       gameState.ship.setCollideWorldBounds(true);
       gameState.bullets = this.physics.add.group();
@@ -21,7 +23,6 @@ class GameScene extends Phaser.Scene{
       gameState.a = this.input.keyboard.addKey('A')
       gameState.s = this.input.keyboard.addKey('S')
       gameState.d = this.input.keyboard.addKey('D')
-      console.log(gameState.cursors)
   }
 
   update () {

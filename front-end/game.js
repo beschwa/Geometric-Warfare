@@ -1,9 +1,11 @@
 gameState = {}
+windowWidth = window.innerWidth
+windowHeight = window.innerHeight
 
 const config = {
     type: Phaser.AUTO,
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: windowWidth,
+    height: windowHeight,
     backgroundColor: "7D7D7D",
     physics: {
         default: 'arcade',
@@ -12,13 +14,16 @@ const config = {
           enableBody: true,
         }
     },
-    scene: [
-      WelcomeScene,
-      SelectShipScene
-      // GameScene,
-      // LeaderboardScene,
-    ]
+    scene: [WelcomeScene,
+      SelectShipScene,
+      SelectStageScene,
+      GameScene,
+    //   LeaderboardScene,
+  ]
+
 
 }
+
+
 
 const game = new Phaser.Game(config)
