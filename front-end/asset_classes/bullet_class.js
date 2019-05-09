@@ -6,7 +6,7 @@ var Bullet = new Phaser.Class({
         function Bullet (scene)
         {
           Phaser.GameObjects.Image.call(this, scene, 0, 0, 'bullet');
-          // this.speed = Phaser.Math.GetSpeed(40000, 100000000000);
+          // this.speed = Phaser.Maath.GetSpeed(40000, 100000000000);
         },
 
         fire: function (x, y, direction)
@@ -50,11 +50,13 @@ var Bullet = new Phaser.Class({
           this.setActive(true);
           this.setVisible(true);
         },
-        // preUpdate: function(time, delta) 
-        // {
-        // 	console.log("yay")
-        // 	console.log(this.inWorld)
-        // },
+
+        // create()
+        // // preUpdate: function(time, delta) 
+        // // {
+        // // 	console.log("yay")
+        // // 	console.log(this.inWorld)
+        // // },
         update: function(time, delta)
         {
           if(this.active){

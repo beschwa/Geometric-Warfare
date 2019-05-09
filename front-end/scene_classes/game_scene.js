@@ -11,13 +11,16 @@ class GameScene extends Phaser.Scene{
   }
 
   create () {
+    // debugger
       this.add.image(windowWidth/2,windowHeight/2,'bg')
+      gameState.score = 0;
+      gameState.scoreText = this.add.text(windowWidth*.5, windowHeight*.1, 'Score: 0', {fontSize: '15px', fill: '#000000' })
       gameState.lastFired = 0;
       gameState.ship = this.physics.add.sprite(300, 300, 'ship').setScale(.5);
       gameState.ship.setCollideWorldBounds(true);
-      gameState.enemy = this.physics.add.sprite(0,0,'enemy').setScale(.25);
+      // gameState.enemy = this.physics.add.sprite(0,0,'enemy').setScale(.25);
       gameState.ship.setCollideWorldBounds(true);
-      this.physics.moveToObject(gameState.enemy, gameState.ship, 300)
+      // this.physics.moveToObject(gameState.enemy, gameState.ship, 300)
       gameState.bullets = this.physics.add.group({
         classType: Bullet,
         maxSize: 100,
@@ -25,21 +28,39 @@ class GameScene extends Phaser.Scene{
       });
 
       gameState.enemies = this.physics.add.group({
-        
+        classType: Enemy,
+        // runChildUpdate: true
       })
 
-      // function enemyGen () {
-      //   let xCoord = Math.random() * windowWidth;
-      //   let yCoord = Math.random() * windowHeight;
-      //   bugs.create(xCoord, 10, 'bug1');
-      // }
+      function enemyGen () {
+        let xCoord = Math.random() * windowWidth
+        let yCoord = Math.random() * windowHeight
+        gameState.enemies.create(xCoord, yCoord, 'enemy').setScale(.18)
+      }
 
-      // const bugGenLoop = this.time.addEvent({
-      //   delay: 100,
-      //   callback: bugGen,
-      //   callbackScope: this,
-      //   loop: true,
-      // });
+      gameState.enemyGenLoop = this.time.addEvent({
+        delay: 500,
+        callback: enemyGen,
+        callbackScope: this,
+        loop: true,
+      })
+
+      this.physics.add.collider(gameState.enemies, gameState.bullets, function (enemy) {
+        enemy.destroy();
+        gameState.score += 10
+        gameState.scoreText.setText(`Score: ${gameState.score}`)
+      })
+
+      this.physics.add.collider(gameState.ship, gameState.enemies, () => {
+        gameState.enemyGenLoop.loop = false
+        this.physics.pause();
+        this.add.text(windowWidth*.42, windowHeight*.45, 'Game Over', { fontSize: '50px', fill: '#FFFFFF' })
+        this.add.text(windowWidth*.42, windowHeight*.55, 'Press Space/Click to Restart', { fontSize: '15px', fill: '#FFFFFF' })
+
+        this.input.on('pointerup', () => {
+          this.scene.restart();
+        })
+      })
 
       gameState.bullets.create(100);
       gameState.bulletspeed = Phaser.Math.GetSpeed(300, 1)
@@ -53,7 +74,7 @@ class GameScene extends Phaser.Scene{
   }
 
   update (time) {
-
+    // debugger
 
     function handleShip () {
         gameState.ship.setVelocity(0,0)
@@ -115,7 +136,6 @@ class GameScene extends Phaser.Scene{
         }
     }
 
-
     function handleBullet () {
       if(time > gameState.lastFired) {            
       let bullet = gameState.bullets.get();
@@ -171,15 +191,20 @@ class GameScene extends Phaser.Scene{
             }
         }
     }}}
-    //edwin functions definition below
+    //Credits: Danko
 
+      if(gameState.enemies.getChildren().length > 0){
+        for(let i = 0; i < gameState.enemies.getChildren().length; i++) {
+        this.physics.moveToObject(gameState.enemies.getChildren()[i], gameState.ship, 250)
+        }
+      }
+    
 
-      this.physics.moveToObject(gameState.enemy, gameState.ship, 300)
       handleShip();
       handleBullet();
-      //edwin function calls below
-      // game.time.repeat(Phaser.Timer.SECOND * 2, 10, handleBullet, this)
-  }
+    //edwin functions definition below
+
+}
 
 
 }

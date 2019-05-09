@@ -3,11 +3,11 @@ class SelectStageScene extends Phaser.Scene{
     super({key:'SelectStageScene'})
   }
   preload(){
-    debugger
+    // debugger
     for(let i = 0; i< gameState.stages.length; i++){this.load.image(`stage${i+1}`,`${gameState.stages[i].resized_image_url}`)}
   }
   create(){
-    debugger
+    // debugger
     this.add.text( windowWidth * .41, windowHeight * .15 , 'Select Stage', {fill: '#000000', fontSize: '40px'})
     // let shipBox = this.add.rectangle(800, 350, 900, 250, 0x37c3be)
     let stage1 = gameState.stages[0]

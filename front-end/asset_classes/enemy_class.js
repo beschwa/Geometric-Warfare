@@ -5,6 +5,13 @@ var Enemy = new Phaser.Class ({
 
 	function Enemy (scene)
 	{
-		Phaser.GameObjects.Image.call(this, scene )
+		let xCoord = Math.random() * windowWidth
+        let yCoord = Math.random() * windowHeight
+		Phaser.GameObjects.Image.call(this, scene, xCoord, yCoord, 'enemy')
+	},
+
+	update: function(time, delta)
+	{
+		debugger
 	},
 })
