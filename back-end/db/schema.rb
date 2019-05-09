@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_140941) do
   create_table "ships", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
+    t.string "bullet_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_140941) do
     t.string "name"
     t.string "image_url"
     t.string "resized_image_url"
+    t.string "enemy_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
