@@ -3,10 +3,10 @@ class LeaderboardScene extends Phaser.Scene{
     super({key:'LeaderboardScene'})
   }
   preload(){
-    GameAdapter.getLeaderboard()
+    GameAdapter.createLeaderboard()
+    gameState.leaderboards = Leaderboard.all
   }
   create(){
-
   }
   update(){
 

@@ -12,5 +12,9 @@ class GameAdapter {
       stages.forEach(stage=>{new Stage(stage)})
     })
   }
-  static getLeaderboard(){return fetch('http://localhost:3000/leaderboards')}
+  static createLeaderboard(){
+    return fetch('http://localhost:3000/leaderboards').then(resp=>resp.json()).then(leaderboards=>{
+      leaderboards.forEach(leaderboard=>{new Leaderboard(stage)})
+    })
+  }
 }
