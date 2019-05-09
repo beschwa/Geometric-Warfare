@@ -4,6 +4,7 @@ class Stage {
     this.name = obj.name
     this.image_url = obj.image_url
     this.resized_image_url = obj.resized_image_url
+    this.enemy_url = obj.enemy_url
     Stage.all.push(this)
   }
 }

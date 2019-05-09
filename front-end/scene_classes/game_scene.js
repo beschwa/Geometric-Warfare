@@ -3,10 +3,11 @@ class GameScene extends Phaser.Scene{
     super({key:'GameScene'})
   }
   preload () {
+    debugger
       this.load.image('bg', `${gameState.selectedStage.image_url}`)
       this.load.image('ship', `${gameState.selectedShip.image_url}`)
-      this.load.image('bullet', 'https://i.imgur.com/6L5HXrP.png')
-      this.load.image('enemy', 'https://i.imgur.com/WElquuZ.png')
+      this.load.image('bullet', `${gameState.selectedShip.bullet_url}`)
+      this.load.image('enemy', `${gameState.selectedStage.enemy_url}`)
       //edwin below
   }
 
@@ -25,7 +26,7 @@ class GameScene extends Phaser.Scene{
       });
 
       gameState.enemies = this.physics.add.group({
-        
+
       })
 
       // function enemyGen () {
@@ -117,7 +118,7 @@ class GameScene extends Phaser.Scene{
 
 
     function handleBullet () {
-      if(time > gameState.lastFired) {            
+      if(time > gameState.lastFired) {
       let bullet = gameState.bullets.get();
       if(bullet){
         gameState.lastFired = time + 100;
