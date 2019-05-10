@@ -21,7 +21,7 @@ const config = {
       SelectStageScene,
       GameScene,
       // SubmitLeaderboardScene
-    //   LeaderboardScene,
+      LeaderboardScene
   ]
 
 

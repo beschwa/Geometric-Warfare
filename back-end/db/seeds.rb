@@ -10,5 +10,5 @@ stage = Stage.create(name:'Blue screen of Death',image_url:'https://i.imgur.com/
 leaderboard = Leaderboard.create(name:'edwin',score:1000,ship_id:1,stage_id:1)
 Ship.create(name:'classic ship',image_url:'https://lh3.googleusercontent.com/6kSnQQipv9rEtUmvjUfd_VUMg9AEZqiPtgS4esH0cPZRrTEjFgCxQkNcJ5RZeYnX5DAbYfMv=w128-h128-e365',bullet_url:'https://i.imgur.com/MNnbvgr.png')
 Ship.create(name:'eric the eric',image_url:'https://i.imgur.com/ZXpTYfy.png',bullet_url:'https://i.imgur.com/qrUOHp5.png')
- Stage.create(name:'the other stage',image_url:'https://i.imgur.com/Imi8Pkm.jpg',resized_image_url:'https://i.imgur.com/Zq51WiW.jpg',enemy_url:'http://www.i2clipart.com/cliparts/7/8/2/0/1281357820401c0f7acc0b8a2022adacce8b3f.png')
+ Stage.create(name:'the other stage',image_url:'https://i.imgur.com/Imi8Pkm.jpg',resized_image_url:'https://i.imgur.com/Zq51WiW.jpg',enemy_url:'https://i.imgur.com/TWO3Ro5.png')
  Stage.create(name:'the last stage',image_url:'https://i.imgur.com/VVHO1i0.jpg',resized_image_url:'https://i.imgur.com/rFlFbvE.jpg',enemy_url:'https://i.imgur.com/WElquuZ.png')

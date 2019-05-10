@@ -12,6 +12,7 @@ var Enemy = new Phaser.Class ({
 
 	update: function(time, delta)
 	{
-		debugger
+		console.log("updated")
+		this.angle += 10
 	},
 })

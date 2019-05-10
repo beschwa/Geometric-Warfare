@@ -3,6 +3,7 @@ class SubmitLeaderboardScene extends Phaser.Scene{
     super({key:'SubmitLeaderboardScene'})
   }
   preload(){
+    this.load.bitmapFont('font', 'assets/fonts/font.png', 'assets/fonts/font.xml')
   this.add.plugin(PhaserInput.Plugin)
   }
   create(){

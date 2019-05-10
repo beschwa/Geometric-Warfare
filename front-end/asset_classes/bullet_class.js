@@ -51,6 +51,12 @@ var Bullet = new Phaser.Class({
           this.setVisible(true);
         },
 
+        killEnemy: function ()
+        {
+            this.setActive(false);
+            this.setVisible(false);
+            this.setVelocity(0,0);
+        },
         // create()
         // // preUpdate: function(time, delta) 
         // // {
