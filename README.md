@@ -1,5 +1,5 @@
 
-# Emoji-wars-game-thing(working title)
+# fake-geometry-wars
 
 
-there's a rails API in the backend directory
+nice,simple javascript game built with the Phaser 3 library inspired by Geometry wars,
