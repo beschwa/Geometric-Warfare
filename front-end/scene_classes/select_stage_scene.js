@@ -12,7 +12,8 @@ class SelectStageScene extends Phaser.Scene{
     this.add.image(windowWidth * .50,windowHeight * .55,'background')
     // this.add.text(windowWidth*.40,windowHeight*.10,'Leaderboards',{fill:'#ffffff',fontSize:'40px'})
     // debugger
-    this.add.bitmapText( windowWidth * .41, windowHeight * .15 , 'font', 'SELECT STAGE')
+    // this.add.bitmapText( windowWidth * .41, windowHeight * .15 , 'font', 'SELECT STAGE')
+    this.add.bitmapText( windowWidth * .30, windowHeight * .10 , 'font', 'SELECT STAGE')
     // let shipBox = this.add.rectangle(800, 350, 900, 250, 0x37c3be)
     let stage1 = gameState.stages[0]
     let stage2 = gameState.stages[1]

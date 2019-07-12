@@ -25,7 +25,8 @@ class GameScene extends Phaser.Scene{
       this.add.image(windowWidth/2,windowHeight/2,'bg').setDepth(-2)
       gameState.score = 0;
       // gameState.scoreText = this.add.bitmapText(windowWidth*.5, windowHeight*.6, 'myfont', "asdfsdsdfsd", 128);
-      gameState.scoreText = this.add.bitmapText(windowWidth*.62, windowHeight*.1, 'font', 'START SHOOTING');
+      // gameState.scoreText = this.add.bitmapText(windowWidth*.62, windowHeight*.1, 'font', 'START SHOOTING');
+      gameState.scoreText = this.add.bitmapText(windowWidth*.57, windowHeight*.1, 'font', 'START SHOOTING');
       // gameState.scoreText = this.add.text(windowWidth*.5, windowHeight*.1, 'Score: 0', {fontSize: '15px', fill: '#000000' })
       gameState.lastFired = 0;
       gameState.ship = this.physics.add.sprite(windowWidth*.5, windowHeight*.5, 'ship').setScale(.5).setDepth(1);
@@ -80,22 +81,25 @@ class GameScene extends Phaser.Scene{
       this.physics.add.collider(gameState.ship, gameState.enemies, () => {
         gameState.enemyGenLoop.loop = false
         this.physics.pause();
-        this.add.bitmapText(windowWidth*.16, windowHeight*.25, 'font', 'Game Over').setScale(3).setDepth(5)
-        this.add.bitmapText(windowWidth*.30, windowHeight*.55, 'font', 'Click to Restart').setDepth(5)
-        this.add.bitmapText(windowWidth*.15, windowHeight*.64, 'font', 'Press any key for Leaderboard').setDepth(5)
+        // this.add.bitmapText(windowWidth*.16, windowHeight*.25, 'font', 'Game Over').setScale(3).setDepth(5)
+        this.add.bitmapText(windowWidth*.08, windowHeight*.25, 'font', 'Game Over').setScale(3).setDepth(5)
+        this.add.bitmapText(windowWidth*.25, windowHeight*.55, 'font', 'Click to Restart').setDepth(5)
+        this.add.bitmapText(windowWidth*.05, windowHeight*.64, 'font', 'Press any key for Leaderboard').setDepth(5)
+        // this.add.bitmapText(windowWidth*.30, windowHeight*.55, 'font', 'Click to Restart').setDepth(5)
+        // this.add.bitmapText(windowWidth*.15, windowHeight*.64, 'font', 'Press any key for Leaderboard').setDepth(5)
         // gameState.userName = window.prompt
 
         this.input.on('pointerup', () => {
           this.scene.restart();
         })
 
-        this.input.keyboard.on('keydown', ()=>{
-         // GameAdapter.createLeaderboard()
-         // GameAdapter.submitLeaderboard(gameState)
-         // gameState.leaderboards = Leaderboard.all
-         this.scene.stop('GameScene')
-         this.scene.start('LeaderboardScene')
-       })
+       //  this.input.keyboard.on('keydown', ()=>{
+       //   // GameAdapter.createLeaderboard()
+       //   // GameAdapter.submitLeaderboard(gameState)
+       //   // gameState.leaderboards = Leaderboard.all
+       //   this.scene.stop('GameScene')
+       //   this.scene.start('LeaderboardScene')
+       // })
       })
 
       gameState.bullets.create(100)

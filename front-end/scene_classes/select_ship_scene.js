@@ -15,6 +15,7 @@ class SelectShipScene extends Phaser.Scene{
   create(){
       this.add.image(windowWidth * .50,windowHeight * .55,'background')
     // this.add.text(windowWidth*.40,windowHeight*.10,'Leaderboards',{fill:'#ffffff',fontSize:'40px'})
+    // this.add.bitmapText( windowWidth * .35, windowHeight * .15 , 'font', 'SELECT SHIP')
     this.add.bitmapText( windowWidth * .35, windowHeight * .15 , 'font', 'SELECT SHIP')
     // let shipBox = this.add.rectangle(800, 350, 900, 250, 0x37c3be)
     let ship1 = gameState.ships[0]
