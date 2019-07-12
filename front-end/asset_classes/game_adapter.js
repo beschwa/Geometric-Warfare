@@ -6,7 +6,8 @@ class GameAdapter {
      .then(ships=>{
       ships.forEach(ship=>{new Ship(ship)})
     })
-  }
+   }
+  
   static createStages(){
     return fetch('http://localhost:3000/stages').then(resp=>resp.json()).then(stages=>{
       stages.forEach(stage=>{new Stage(stage)})
