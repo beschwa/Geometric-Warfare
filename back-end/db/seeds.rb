@@ -3,7 +3,7 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+  # movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 ship = Ship.create(name:'shippy the ship',image_url:'http://dianavermilya.github.io/paranormal-site/img/spaceship/spaceship_sprite.png',bullet_url:'https://i.imgur.com/6L5HXrP.png')
 stage = Stage.create(name:'Blue screen of Death',image_url:'https://i.imgur.com/0m3xDha.jpg',resized_image_url:'https://i.imgur.com/mRUIlaw.jpg',enemy_url:'https://i.imgur.com/WKqQGD1.png')
